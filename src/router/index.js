@@ -1,26 +1,21 @@
-import lazyLoading from './lazyLoading';
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
 
+Vue.use(VueRouter)
 
-/* 
-*  renderNav: 是否渲染路由名字到面包屑导航，默认true
-*  hidden: 是否不渲染到导航菜单，默认false	
-*  需要注意:	通过lazyLoading配置的是views中目录名
- */
-const routes = [
-	//	路由模板
-	{
-		path: '/',
-		name: 'home',
-		hidden: true,
-		component: lazyLoading('home'),
-		meta: {title:'首页', renderNav: false},
-		children: []
-	},
-	// 配置错误路由跳转404页面
-	{
-		path: '/404',
-		name: '404',
-		hidden: true,
-		component: lazyLoading('notFound/404')
-	}
+  const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  }
 ]
+
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
+})
+
+export default router
