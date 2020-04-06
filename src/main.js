@@ -4,7 +4,8 @@ import router from './router'
 import store from './store'
 
 import '@/utils/autoRegister';
-import './plugins/element.js'
+import './plugins/element.js';
+import '@/styles/animate.css'
 
 Vue.config.productionTip = false;
 
