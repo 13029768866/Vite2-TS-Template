@@ -10,7 +10,7 @@
 
     <el-button @click="isEdit = !isEdit" type="primary">编辑</el-button>
 
-    <wzj-panel
+    <wzj-panel1
       v-show="titleShow"
       :info="info"
       :isEdit="isEdit"
@@ -20,26 +20,26 @@
       <template slot="wzj" slot-scope="scope">
         <div style="color: red">{{ scope.row.value }}</div>
       </template>
-    </wzj-panel>
+    </wzj-panel1>
 
-    <wzj-table
-      v-loading="tableLoading"
-      :table-config="tableConfig"
-      :table-data="tableData"
-      :page="page"
-      @togglePage="togglePage"
-    >
-      <template slot="wzj" slot-scope="scope">
-        <div style="display: flex;justify-content: space-around">
-          <div class="sky">
-            {{ scope.row.proName }}
-          </div>
-          <div @click="checkStatus" :class="{ choose: status }">
-            星星
-          </div>
-        </div>
-      </template>
-    </wzj-table>
+<!--    <wzj-table-->
+<!--      v-loading="tableLoading"-->
+<!--      :table-config="tableConfig"-->
+<!--      :table-data="tableData"-->
+<!--      :page="page"-->
+<!--      @togglePage="togglePage"-->
+<!--    >-->
+<!--      <template slot="wzj" slot-scope="scope">-->
+<!--        <div style="display: flex;justify-content: space-around">-->
+<!--          <div class="sky">-->
+<!--            {{ scope.row.proName }}-->
+<!--          </div>-->
+<!--          <div @click="checkStatus" :class="{ choose: status }">-->
+<!--            星星-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </template>-->
+<!--    </wzj-table>-->
   </div>
 </template>
 
@@ -55,8 +55,7 @@ export default {
   data() {
     return {
       /* title */
-      titleShow: false,
-
+      titleShow: true,
       isEdit: false,
       info: [
         {
@@ -126,7 +125,8 @@ export default {
     togglePage(val) {
       this.page = val;
       this.getList();
-    }
+    },
+
   }
 };
 </script>
