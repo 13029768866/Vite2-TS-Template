@@ -1,4 +1,4 @@
-# 模板升级ing~~~
+# 模板升级ing
 
 ## Project setup
 ```
