@@ -1,19 +1,34 @@
 # 模板升级ing~~~
 
-## Project setup
-```
-yarn install
-```
+# 功能
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## 登录
 
-### Compiles and minifies for production
-```
-yarn build
-```
+1. jwt + 路由过滤
+2. token校验和重定向
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 电子书
+
+### 上传
+
+1. 前端文件上传
+2. 静态资源服务器接收
+
+### 解析
+
+1. epub解析原理
+2. zip解压
+3. xml解析
+
+### 增删改查
+
+1. mysql数据库应用
+2. 前后端异常处理
+
+ # 后端依赖
+
+## Nginx  
+
+- windows 通过下载官网安装包，下载地址：http://nginx.org/en/download.html
+- mac 通过 brew 安装，参考：https://www.jianshu.com/p/c3294887c6b6
+
