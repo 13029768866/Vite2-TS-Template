@@ -1,11 +1,22 @@
 # 模板升级ing~~~ 
 
+# webstrom中eslint处理小技巧
+
+script不顶行
+
+Code Style =>HTML => Do not indent中添加script
+
 # 功能
 
 ## 登录
 
 1. jwt + 路由过滤
 2. token校验和重定向
+3. 路由分两类： 无需权限的公共路由constantRoutes  和   需要权限校验的asyncRoutes
+
+## 路由和权限校验
+
+
 
 ## 电子书
 
