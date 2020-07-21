@@ -34,7 +34,7 @@ Code Style =>HTML => Do not indent中添加script
 ### 增删改查
 
 1. mysql数据库应用
-2. 前后端异常处理
+2. 前后端异常处理 
 
  # 后端依赖
 
