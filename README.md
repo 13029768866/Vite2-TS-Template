@@ -13,12 +13,15 @@ Code Style =>HTML => Do not indent中添加script
 1. jwt + 路由过滤
 2. token校验和重定向
 3. 路由分两类： 无需权限的公共路由constantRoutes  和   需要权限校验的asyncRoutes
+4. 优化：大小写切换给提示
 
 ## 路由和权限校验
 
 ## 侧边栏
 
-  
+## 重定向
+
+
 
 ## 电子书
 
