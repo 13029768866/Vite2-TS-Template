@@ -1,6 +1,6 @@
 # 模板升级ing~~~ 
 
-# webstrom中eslint处理小技巧
+# webstrom中eslint处理小技巧 
 
 script不顶行
 
