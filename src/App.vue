@@ -1,44 +1,27 @@
 <template>
-  <div id="app">
-    {{$store.state.age}}
-    <button @click="syncChange()">同步修改</button>
-    <button @click="asyncChange()">异步修改</button>
-<!--      <router-view/>-->
-  </div>
+  <Main />
 </template>
 
-<script>
-  /*window.addEventListener("beforeunload",()=>{
-    console.log(1);
-    sessionStorage.setItem("age",this.$store.age)
-  })*/
+<script lang="ts">
+import { defineComponent } from 'vue'
+import Main from '@/components/Main.vue'
 
-export default {
-  name: 'app',
+export default defineComponent({
+  name: 'App',
   components: {
-
-  },
-  mounted(){
-    window.addEventListener("beforeunload",()=>{
-      sessionStorage.setItem("age",this.$store.state.age)
-    })
-    console.log(sessionStorage.getItem('age'));
-    if (sessionStorage.getItem("age") ) {
-      let res = +(sessionStorage.getItem("age",this.$store.state.age))
-      this.$store.commit('SYNC_EQUAL',res)
-    }
-  },
-  methods:{
-    syncChange(){
-      this.$store.commit('SYNC_CHANGE',10)
-    },
-    asyncChange(){
-      this.$store.dispatch('asyncChange',5)
-    }
+    Main
   }
-}
+})
 </script>
 
-<style>
-
+<style lang="stylus">
+#app {
+  font-family Avenir, Helvetica, Arial, sans-serif
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  box-sizing border-box
+  position relative
+  width 100%
+  height 100%
+}
 </style>
