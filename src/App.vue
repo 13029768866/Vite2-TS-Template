@@ -1,27 +1,22 @@
 <template>
-  <Main />
+  <router-view></router-view>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import Main from '@/components/Main.vue'
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'App',
-  components: {
-    Main
-  }
-})
+  name: "App",
+});
 </script>
 
-<style lang="stylus">
+<style lang="scss">
 #app {
-  font-family Avenir, Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  box-sizing border-box
-  position relative
-  width 100%
-  height 100%
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
