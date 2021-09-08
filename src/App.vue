@@ -11,6 +11,11 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+    margin-top: 65px;
+  }
+
+  .abcv {
+    width: 100px;
+    border: 1px solid #000;
   }
 </style>
