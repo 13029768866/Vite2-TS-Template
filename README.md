@@ -1,11 +1,72 @@
-# Vue 3 + Typescript + Vite
+# Vue3 Base Template
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 特性
 
-## Recommended IDE Setup
+- ⚡️ [Vite](https://cn.vitejs.dev/) - 构建工具
+- 🖖 [Vue 3](https://cn.vuejs.org/) - 渐进式框架
+- 🚦  [Vue Router](https://router.vuejs.org/zh) - 路由管理器
+- 📦 [Pinia](https://pinia.vuejs.org/zh) - 状态管理系统（轻量级）
+- 🔗 [Axios](https://axios-http.com/zh/) - 一个基于 promise 的网络请求库，可以用于浏览器和 node.js
+- 🧰 [Husky](https://typicode.github.io/husky/#/) + [Lint-Staged](https://github.com/okonet/lint-staged) - Git Hook 工具
+- 🛡️ [EditorConfig](http://editorconfig.org/) + [ESLint](http://eslint.cn/) + [Prettier](https://prettier.cn/) + [Stylelint](https://stylelint.cn/) - 代码规范
+- 🔨 [Commitizen](https://cz-git.qbb.sh/zh) + [Commitlint](https://commitlint.js.org/) - 提交规范
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+## TS相关配置
 
-## Type Support For `.vue` Imports in TS
+- `types/node`
+- `@vue/tsconfig`
+- `@typescript-eslint/eslint-plugin`
+- `@typescript-eslint/parser`
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+### ts.config.json
+
+```json
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "compilerOptions": {
+    "paths": { 							//	别名类型映射
+      "@/*": ["./src/*"]
+    },
+    "target": "ESNext",					//  指定ECMA目标版本
+    "useDefineForClassFields": true,	//  class不需要初始化字段
+    "module": "ESNext",					//  指定生成哪个模块
+    "moduleResolution": "Node",			//  模块的处理方式
+    "strict": true,						// 	是否开启严格模式
+    "jsx": "preserve",					//	支持jsx
+    "resolveJsonModule": true,			// 	支持导入模块
+    "isolatedModules": true,			//	每个文件作为单独的模块
+    "esModuleInterop": true,			//	可以通过import的方式导入CommonJS模块
+    "lib": ["ESNext", "DOM"],			//	编译过程中需要引入的库文件
+    "skipLibCheck": true,				//	忽略声明文件（xxx.d.ts）类型检查
+    "noEmit": true						//	不生成输出文件
+  }, 
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": ["node_modules", "tests/server/**/*.ts", "dist", "**/*.js"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
+```
+
+```bash
+pnpm i @typescript-eslint/eslint-plugin @typescript-eslint/parser -D
+```
+
+## ESLint
+
+- `eslint`
+- `eslint-plugin-vue`
+- `vue-eslint-parser`
+
+```bash
+pnpm i eslint eslint-plugin-vue vue-eslint-parser -D
+```
+
+## Prettier
+
+- `prettier`
+- `eslint-config-prettier`
+- `eslint-plugin-prettier`
+
+```bash
+pnpm i prettier eslint-config-prettier eslint-plugin-prettier -D
+```
+

@@ -16,5 +16,6 @@ module.exports = {
   proseWrap: 'never', // 换行规则; always(超过printWidth换行)，never（不换行，可以使用编译器换行规则），preserve（按照原样返回）
   htmlWhitespaceSensitivity: 'strict', // html内空格敏感度; strict(敏感)，ignore（忽视）, css(css现实属性默认值)
   vueIndentScriptAndStyle: true, // 是否缩进vue文件中的,<script>和<style>标签
-  endOfLine: 'lf', // 结束行，linux默认‘lf’,配合.editorconfig解决windows结束行“crlf”报错问题
+  endOfLine: 'auto', // 结束行，linux默认‘lf’,配合.editorconfig解决windows结束行“crlf”报错问题
 };
+ 
