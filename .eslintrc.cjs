@@ -8,70 +8,76 @@ module.exports = {
   },
 
   // 配置解析器
-  parser: "vue-eslint-parser",
-  // 解析器选项 
+  parser: 'vue-eslint-parser',
+  // 解析器选项
   parserOptions: {
-    parser: "@typescript-eslint/parser",
+    parser: '@typescript-eslint/parser',
     ecmaVersion: 2020, // es12版本  https://blog.csdn.net/TIAN20121221/article/details/114648905
-    sourceType: "module", // ECMAScript 模块
+    sourceType: 'module', // ECMAScript 模块
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   // 继承额外eslint配置
   extends: [
-    "plugin:vue/vue3-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
+    'plugin:vue/vue3-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended', // 这条一定要放在最后面
   ],
   rules: {
-    "vue/script-setup-uses-vars": "error",
-    "@typescript-eslint/ban-ts-ignore": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/no-empty-function": "off",
-    "vue/custom-event-name-casing": "off",
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": "off",
-    "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/ban-types": "off",
-    "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
+    // 是否禁止ts-ignore注释
+    '@typescript-eslint/ban-ts-ignore': 'off',
+    // 函数返回值类型是否声明
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/ban-types': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
       {
-        argsIgnorePattern: "^_",
-        varsIgnorePattern: "^_",
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
       },
     ],
-    "no-unused-vars": [
-      "error",
+    'no-unused-vars': [
+      'error',
       {
-        argsIgnorePattern: "^_",
-        varsIgnorePattern: "^_",
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
       },
     ],
-    "space-before-function-paren": "off",
-
-    "vue/attributes-order": "off",
-    "vue/one-component-per-file": "off",
-    "vue/html-closing-bracket-newline": "off",
-    "vue/max-attributes-per-line": "off",
-    "vue/multiline-html-element-content-newline": "off",
-    "vue/singleline-html-element-content-newline": "off",
-    "vue/attribute-hyphenation": "off",
-    "vue/require-default-prop": "off",
-    "vue/require-explicit-emits": "off",
-    "vue/html-self-closing": [
-      "error",
+    // 禁止在变量定义之前使用它们
+    'no-use-before-define': 'off',
+    'space-before-function-paren': 'off',
+    'vue/custom-event-name-casing': 'off',
+    // 检测setup中否使用了未声明的变量
+    'vue/script-setup-uses-vars': 'error',
+    'vue/attributes-order': 'off',
+    'vue/one-component-per-file': 'off',
+    'vue/html-closing-bracket-newline': 'off',
+    'vue/max-attributes-per-line': 'off',
+    'vue/multiline-html-element-content-newline': 'off',
+    'vue/singleline-html-element-content-newline': 'off',
+    'vue/attribute-hyphenation': 'off',
+    'vue/require-default-prop': 'off',
+    'vue/require-explicit-emits': 'off',
+    'vue/html-self-closing': [
+      'error',
       {
         html: {
-          void: "always",
-          normal: "never",
-          component: "always",
+          void: 'always',
+          normal: 'never',
+          component: 'always',
         },
-        svg: "always",
-        math: "always",
+        svg: 'always',
+        math: 'always',
       },
     ],
-    "vue/multi-word-component-names": "off",
+    'vue/multi-word-component-names': 'off',
   },
 };
