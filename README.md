@@ -76,7 +76,7 @@ pnpm i prettier eslint-config-prettier eslint-plugin-prettier -D
 - `stylelint`
 - `stylelint-config-prettier`
 - `stylelint-config-recommended`
-- `stylelint-config-recommended-vue`
+- `stylelint-config-recommended-vue`（**依赖需要 15 版本以上的 stylelint，其他依赖暂时不支持 15 版本！**）
 - `stylelint-config-standard`
 - `stylelint-order`
 
@@ -93,3 +93,54 @@ pnpm i stylelint stylelint-config-prettier stylelint-config-recommended stylelin
 - `postcss-html`
 
 - `postcss-less`
+
+## Git 提交规范
+
+- `husky`
+
+- `lint-staged`
+
+  ```json
+  // package.json中添加
+  "lint-staged": {
+      "*.{js,jsx,ts,tsx}": [
+        "eslint --fix",
+        "prettier --write"
+      ],
+      "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
+        "prettier --write--parser json"
+      ],
+      "package.json": [
+        "prettier --write"
+      ],
+      "*.vue": [
+        "eslint --fix",
+        "prettier --write",
+        "stylelint --fix"
+      ],
+      "*.{scss,less,styl,html}": [
+        "stylelint --fix",
+        "prettier --write"
+      ],
+      "*.md": [
+        "prettier --write"
+      ]
+    },
+  ```
+
+- `commitizen`全局安装，调用 cz 指令
+
+- `cz-git`
+
+  ```json
+  // package.json指定适配器
+  "config": {
+      "commitizen": {
+        "path": "node_modules/cz-git"
+      }
+    }
+  ```
+
+- `@commitlint/cli`
+
+- `@commitlint/config-conventional`
