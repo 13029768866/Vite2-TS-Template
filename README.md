@@ -70,3 +70,27 @@ pnpm i eslint eslint-plugin-vue vue-eslint-parser -D
 pnpm i prettier eslint-config-prettier eslint-plugin-prettier -D
 ```
 
+## StyleLint
+
+- `stylelint`
+- `stylelint-config-prettier`
+- `stylelint-config-recommended`
+- `stylelint-config-recommended-vue`
+- `stylelint-config-standard`
+- `stylelint-order`
+
+**安装`postcss-html`,上面部分包依赖此插件**
+
+```bash
+pnpm i stylelint stylelint-config-prettier stylelint-config-recommended stylelint-config-recommended-vue stylelint-order -D
+```
+
+## Postcss
+
+- `postcss`
+
+- `postcss-html`
+
+- `postcss-less`
+
+  

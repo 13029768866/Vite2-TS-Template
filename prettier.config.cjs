@@ -18,4 +18,3 @@ module.exports = {
   vueIndentScriptAndStyle: true, // 是否缩进vue文件中的,<script>和<style>标签
   endOfLine: 'auto', // 结束行，linux默认‘lf’,配合.editorconfig解决windows结束行“crlf”报错问题
 };
- 
