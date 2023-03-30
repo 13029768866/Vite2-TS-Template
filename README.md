@@ -13,7 +13,7 @@
 
 ## 二、PNPM (包管理工具）
 
-- [pnpm]: https://pnpm.io
+-  [pnpm](https://pnpm.io/) 
 
 - 快：`pnpm`是同类工具速度的将近2倍
 - 高效： `node_modules`中所有文件均链接自单一存储位置
@@ -22,7 +22,7 @@
 
 ## 三、Vite (构建工具)
 
-- [Vite]: https://cn.vitejs.dev
+-  [Vite](https://cn.vitejs.dev/)
 
 - 极速的服务启动：使用原生ESM文件，无需打包操作！（Webpack整个项目代码打包在一起，然后才能启动服务）
 - `HMR`(热重载)轻量快速：无论应用大小，都可以极快的模块热更新
