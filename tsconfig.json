@@ -1,22 +1,22 @@
 {
-  "compilerOptions": {
-    "paths": { 
+  "compilerOptions": { 
+    "paths": { // 别名路径
       "@/*": ["./src/*"]
     },
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": true,
-    "jsx": "preserve",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true,
-    "noEmit": true
+    "target": "ESNext", // 转化目标语法
+    "module": "ESNext", // 转化格式
+    "moduleResolution": "Node", // 解析规则
+    "strict": true, // 严格模式
+    "jsx": "preserve", // 不允许ts变异jsx语法
+    "resolveJsonModule": true, // 允许导入json文件
+    "esModuleInterop": true,  // 可以通过import的方式导入CommonJS模块
+    "lib": ["ESNext", "DOM"], // 编译过程中需要引入的库文件
+    "skipLibCheck": true, // 忽略声明文件（xxx.d.ts）类型检查
+    "useDefineForClassFields": true, // class不需要初始化字段
+    "noEmit": true, // 开启不生成输出文件,只进行代码校验
+    
   }, 
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "exclude": ["node_modules", "tests/server/**/*.ts", "dist", "**/*.js"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }]  // 用于指定项目共享代码的引用关系
 }

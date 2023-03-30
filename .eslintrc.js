@@ -6,12 +6,11 @@ module.exports = {
     es2021: true, // 添加所有 ECMAScript 2021 全局变量
     node: true, // Node.js 全局变量和 Node.js 作用域
   },
-
-  // 配置解析器
+  // 配置解析器解析.vue文件
   parser: 'vue-eslint-parser',
   // 解析器选项
   parserOptions: {
-    parser: '@typescript-eslint/parser',
+    parser: '@typescript-eslint/parser', // 解析ts文件
     ecmaVersion: 2020, // es12版本  https://blog.csdn.net/TIAN20121221/article/details/114648905
     sourceType: 'module', // ECMAScript 模块
     ecmaFeatures: {
@@ -25,10 +24,8 @@ module.exports = {
     'plugin:prettier/recommended', // 这条一定要放在最后面
   ],
   rules: {
-    // 是否禁止ts-ignore注释
-    '@typescript-eslint/ban-ts-ignore': 'off',
-    // 函数返回值类型是否声明
-    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/ban-ts-ignore': 'off', // 是否禁止ts-ignore注释
+    '@typescript-eslint/explicit-function-return-type': 'off', // 函数返回值类型是否声明
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-empty-function': 'off',
