@@ -13,29 +13,29 @@
 
 ## 二、PNPM (包管理工具）
 
--  [pnpm](https://pnpm.io/) 
+- [pnpm](https://pnpm.io/)
 
-- 快：`pnpm`是同类工具速度的将近2倍
+- 快：`pnpm`是同类工具速度的将近 2 倍
 - 高效： `node_modules`中所有文件均链接自单一存储位置
 - 支持单体仓库： `monorepo`，单个源码仓库中包含多个软件包支持
 - 权限严格： 创建的`node_modules`默认并非扁平结构，因此代码无法对任意软件包进行访问
 
 ## 三、Vite (构建工具)
 
--  [Vite](https://cn.vitejs.dev/)
+- [Vite](https://cn.vitejs.dev/)
 
-- 极速的服务启动：使用原生ESM文件，无需打包操作！（Webpack整个项目代码打包在一起，然后才能启动服务）
+- 极速的服务启动：使用原生 ESM 文件，无需打包操作！（Webpack 整个项目代码打包在一起，然后才能启动服务）
 - `HMR`(热重载)轻量快速：无论应用大小，都可以极快的模块热更新
 - 丰富的功能：对`TypeScript`、`JSX`、`CSS`等支持开箱即用
-- 优化的构建：可选择 **多页应用** 和 **库** 模式的预配置（本质Rollup构建）
+- 优化的构建：可选择 **多页应用** 和 **库** 模式的预配置（本质 Rollup 构建）
 - 通用的插件：开发和构建之间共享 `Rollup-superset` 插件接口
-- 完全类型化的API：灵活的API和完整TypeScript
+- 完全类型化的 API：灵活的 API 和完整 TypeScript
 
 ## 四、项目目录
 
-##	五、TS配置
+## 五、TS 配置
 
-### 1、安装基础依赖
+### 1、安装依赖
 
 - `typescript`
 - `@vue/tsconfig`
@@ -45,12 +45,13 @@
 pnpm i typescript @vue/tsconfig vue-tsc -D
 ```
 
-### 2、配置tsconfig.json
+### 2、配置 tsconfig.json
 
 ```json
 {
-  "compilerOptions": { 
-    "paths": { // 别名路径
+  "compilerOptions": {
+    "paths": {
+      // 别名路径
       "@/*": ["./src/*"]
     },
     "target": "ESNext", // 转化目标语法
@@ -59,20 +60,19 @@ pnpm i typescript @vue/tsconfig vue-tsc -D
     "strict": true, // 严格模式
     "jsx": "preserve", // 不允许ts变异jsx语法
     "resolveJsonModule": true, // 允许导入json文件
-    "esModuleInterop": true,  // 可以通过import的方式导入CommonJS模块
+    "esModuleInterop": true, // 可以通过import的方式导入CommonJS模块
     "lib": ["ESNext", "DOM"], // 编译过程中需要引入的库文件
     "skipLibCheck": true, // 忽略声明文件（xxx.d.ts）类型检查
     "useDefineForClassFields": true, // class不需要初始化字段
-    "noEmit": true, // 开启不生成输出文件,只进行代码校验
-    
-  }, 
+    "noEmit": true // 开启不生成输出文件,只进行代码校验
+  },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "exclude": ["node_modules", "tests/server/**/*.ts", "dist", "**/*.js"],
-  "references": [{ "path": "./tsconfig.node.json" }]  // 用于指定项目共享代码的引用关系
+  "references": [{ "path": "./tsconfig.node.json" }] // 用于指定项目共享代码的引用关系
 }
 ```
 
-### 3、配置tsconfig.node.josn
+### 3、配置 tsconfig.node.josn
 
 ```json
 {
@@ -88,7 +88,6 @@ pnpm i typescript @vue/tsconfig vue-tsc -D
 ### 4、依赖包声明文件
 
 - `@types/node`
-- 
 
 ## 六、`EsLint` 配置
 
@@ -106,21 +105,55 @@ pnpm i eslint eslint-plugin-vue vue-eslint-parser @typescript-eslint/eslint-plug
 
 ### 2、配置继承规则和自定义规则
 
-请看`.eslintrc.js`
+详情请看`.eslintrc.js`
+
+### 3、配置.eslintignore
+
+```json
+node_modules
+*.sh
+*.md
+*.woff
+*.ttf
+*.css
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.d.ts
+.vscode
+.idea
+dist
+/public
+/docs
+.husky
+.local
+/bin
+Dockerfile
+```
+
+### 4、添加脚本
+
+```json
+"lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
+```
+
+- `--cache`: 启用缓存，用于加速下一次 lint。
+- `--max-warnings 0`: 将警告的数量限制为 0，即不允许有任何警告，只有错误才会被报告。
 
 ## 七、`Prettier ` 配置
 
 ### 1、安装依赖
 
 - `prettier`
-- `eslint-config-prettier`
-- `eslint-plugin-prettier`
+- `eslint-config-prettier`: 关闭 ESLint 中与 Prettier 中会发生冲突的规则
+- `eslint-plugin-prettier`: 将 Prettier 的规则设置到 ESLint 的规则中
 
-```bash
+```shell
 pnpm i prettier eslint-config-prettier eslint-plugin-prettier -D
 ```
 
-### 2、配置prettier.config.js
+### 2、配置 prettier.config.js
 
 ```js
 module.exports = {
@@ -159,5 +192,83 @@ module.exports = {
 /public/*
 ```
 
+### 4、添加脚本
 
+```json
+"lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
+```
 
+## 八、`Stylelint` 配置
+
+### 1、安装依赖
+
+- `postcss`: css 工具
+- `postcss-less`/`postcss-sass`: 识别 less/sass 语法
+- `postcss-html`: 识别 html/vue 中的`<style></style>`标签中的样式
+- `stylelint `: css 格式 lint 工具`:
+- `stylelint-config-standard`: `Stylelint`的标准可共享配置规则
+- `stylelint-config-prettier`: 关闭所有不必要或可能与`Prettier`冲突的规则
+- `stylelint-config-recommended`: `Stylelint`官方提供的一个推荐配置
+- `stylelint-config-recommended-vue`: lint`.vue`文件的样式配置
+- `stylelint-order`: 指定样式书写的顺序，在`.stylelintrc.js`中`order/properties-order`指定顺序
+
+```json
+pnpm i stylelint postcss postcss-html stylelint-config-standard stylelint-config-prettier stylelint-config-recommended stylelint-config-recommended-vue stylelint-order -D
+```
+
+### 2、配置`.stylelintrc.js`
+
+详情请看`.stylelintrc.js`
+
+### 3、添加脚本
+
+```json
+ "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+```
+
+## 九、`Git` 提交信息校验
+
+### 1、安装依赖
+
+- `husky`
+- `lint-staged`
+- `@commitlint/cli`
+- `@commitlint/config-conventional`
+- `cz-git`
+
+```bash
+pnpm i husky lint-staged @commitlint/cli @commitlint/config-conventional cz-git -D
+```
+
+### 2、husky 钩子配置
+
+详情查看`.husky`下面`pre-commit`、`commit-msg`
+
+### 3、配置`lint-staged`
+
+```json
+"lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
+      "prettier --write--parser json"
+    ],
+    "package.json": [
+      "prettier --write"
+    ],
+    "*.vue": [
+      "eslint --fix",
+      "prettier --write",
+      "stylelint --fix"
+    ],
+    "*.{scss,less,styl,html}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
+  }
+```
