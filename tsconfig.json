@@ -1,5 +1,5 @@
 {
-  "compilerOptions": { 
+  "compilerOptions": {
     "paths": { // 别名路径
       "@/*": ["./src/*"]
     },
@@ -14,9 +14,8 @@
     "skipLibCheck": true, // 忽略声明文件（xxx.d.ts）类型检查
     "useDefineForClassFields": true, // class不需要初始化字段
     "noEmit": true, // 开启不生成输出文件,只进行代码校验
-    
-  }, 
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue","./auto-imports.d.ts"],
   "exclude": ["node_modules", "tests/server/**/*.ts", "dist", "**/*.js"],
   "references": [{ "path": "./tsconfig.node.json" }]  // 用于指定项目共享代码的引用关系
 }

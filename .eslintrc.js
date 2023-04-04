@@ -22,6 +22,7 @@ module.exports = {
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended', // 这条一定要放在最后面
+    './.eslintrc-auto-import.json',
   ],
   rules: {
     '@typescript-eslint/ban-ts-ignore': 'off', // 是否禁止ts-ignore注释

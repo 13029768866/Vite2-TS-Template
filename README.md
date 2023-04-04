@@ -272,3 +272,40 @@ pnpm i husky lint-staged @commitlint/cli @commitlint/config-conventional cz-git 
     ]
   }
 ```
+
+### 4、配置`commitlint.config.js`
+
+详情见`commitlint.config.js`
+
+### 5、配置脚本指令
+
+```json
+"config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  }
+```
+
+## 十、快乐小插件
+
+### 1、`unplugin-auto-import`
+
+1. 配置
+
+   ```js
+     AutoImport({
+         imports: ['vue', 'vue-router'],
+         // eslintrc: { enabled: true },
+       }),
+   ```
+
+2. 解决 eslint 报错
+
+   通过 `eslintrc: { enabled: true }` 配置生成 `.eslintrc-auto-import.json`,在 `eslintrc` 中继承
+
+3. 解决 ts 报错
+
+​ `tsconfig` 继承 `auto-imports.d.ts`
+
+1. 1
