@@ -13,11 +13,18 @@
       </nav>
     </div>
   </header>
-
-  <RouterView />
+  <div class="theme-class">
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>
+  /* 静态换肤方法推荐 */
+  .theme-class {
+    --el-fill-color-blank: yellow;
+    --el-text-color-regular: red;
+  }
+
   header {
     max-height: 100vh;
     line-height: 1.5;

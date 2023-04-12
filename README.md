@@ -289,7 +289,7 @@ pnpm i husky lint-staged @commitlint/cli @commitlint/config-conventional cz-git 
 
 ## 十、快乐小插件
 
-### 1、`unplugin-auto-import`
+### 1、`unplugin-auto-import` 自动导入 api
 
 1. 配置
 
@@ -306,6 +306,29 @@ pnpm i husky lint-staged @commitlint/cli @commitlint/config-conventional cz-git 
 
 3. 解决 ts 报错
 
-​ `tsconfig` 继承 `auto-imports.d.ts`
+`tsconfig` 继承 `auto-imports.d.ts`
 
-1. 1
+### 2、`unplugin-vue-components` 按需加载 UI 框架组件
+
+1. 配置
+
+   ```js
+   AutoImport({
+       resolvers: [ElementPlusResolver()],
+   }),
+       Components({
+       resolvers: [ElementPlusResolver()],
+   }),
+   ```
+
+## 十一、UI 框架换肤方法
+
+### 1、静态方法
+
+1. 通过替换 css 变量实现，全局添加自定类型，类型下面替换变量(全局包裹容器上定义 class 类名)
+
+   ```css
+   .theme-class {
+     --el-fill-color-blank: yellow;
+   }
+   ```

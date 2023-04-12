@@ -5,6 +5,8 @@ import App from './App.vue';
 import router from './router';
 
 import './assets/main.css';
+import 'uno.css';
+import '@iconify-json/ep';
 
 const app = createApp(App);
 
